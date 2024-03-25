@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/sfy/study/BREWESS/build/src",
+  "command": "/usr/bin/g++  -DINFO -I/home/sfy/study/BREWESS/lib/pg/nsg/include   -fopenmp -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -g   -std=c++11 -O3 -lboost -march=native -Wall -fPIC -std=gnu++11 -o CMakeFiles/efanna2e_s.dir/index.cpp.o -c /home/sfy/study/BREWESS/lib/pg/nsg/src/index.cpp",
+  "file": "/home/sfy/study/BREWESS/lib/pg/nsg/src/index.cpp"
+},
+{
+  "directory": "/home/sfy/study/BREWESS/build/src",
+  "command": "/usr/bin/g++  -DINFO -I/home/sfy/study/BREWESS/lib/pg/nsg/include   -fopenmp -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -g   -std=c++11 -O3 -lboost -march=native -Wall -fPIC -std=gnu++11 -o CMakeFiles/efanna2e_s.dir/index_nsg.cpp.o -c /home/sfy/study/BREWESS/lib/pg/nsg/src/index_nsg.cpp",
+  "file": "/home/sfy/study/BREWESS/lib/pg/nsg/src/index_nsg.cpp"
+},
+{
+  "directory": "/home/sfy/study/BREWESS/build/src",
+  "command": "/usr/bin/g++  -DINFO -I/home/sfy/study/BREWESS/lib/pg/nsg/include   -fopenmp -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -g   -std=c++11 -O3 -lboost -march=native -Wall -fPIC -std=gnu++11 -o CMakeFiles/efanna2e.dir/index.cpp.o -c /home/sfy/study/BREWESS/lib/pg/nsg/src/index.cpp",
+  "file": "/home/sfy/study/BREWESS/lib/pg/nsg/src/index.cpp"
+},
+{
+  "directory": "/home/sfy/study/BREWESS/build/src",
+  "command": "/usr/bin/g++  -DINFO -I/home/sfy/study/BREWESS/lib/pg/nsg/include   -fopenmp -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -g   -std=c++11 -O3 -lboost -march=native -Wall -fPIC -std=gnu++11 -o CMakeFiles/efanna2e.dir/index_nsg.cpp.o -c /home/sfy/study/BREWESS/lib/pg/nsg/src/index_nsg.cpp",
+  "file": "/home/sfy/study/BREWESS/lib/pg/nsg/src/index_nsg.cpp"
+}
+]

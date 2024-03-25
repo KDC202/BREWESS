@@ -11,6 +11,7 @@ import os.path as osp
 class Dataset:
 
     def __init__(self, dataset, data_path='./data', normalize=False, random_state=50, **kwargs):
+        # 通过为这三个库设置种子，确保了它们之间的随机数生成是一致的，这对于处理机器学习模型或其他需要可重现性的应用非常重要。
         np.random.seed(random_state)
         torch.manual_seed(random_state)
         random.seed(random_state)
@@ -30,6 +31,7 @@ class Dataset:
 
         print(self.train_vectors.shape, self.test_vectors.shape, self.query_vectors.shape)
 
+        # 根据训练数据集的平均 L2 范数来决定是否对数据进行归一化处理
         mean_norm = self.train_vectors.norm(p=2, dim=-1).mean().item()
         if normalize:
             self.train_vectors = self.train_vectors / mean_norm
@@ -41,10 +43,10 @@ class Dataset:
 
 
 def fetch_DEEP1M(path, train_size=1 * 10 ** 5, test_size=10 ** 6, ):
-    base_path = osp.join(path, 'deep_base.fvecs')
-    learn_path = osp.join(path, 'deep_learn.fvecs')
-    query_path = osp.join(path, 'deep_query.fvecs')
-    ground_path = osp.join(path, 'deep_groundtruth.ivecs')
+    base_path = osp.join(path, 'deep1M_base.fvecs')
+    learn_path = osp.join(path, 'deep1M_learn.fvecs')
+    query_path = osp.join(path, 'deep1M_query.fvecs')
+    ground_path = osp.join(path, 'deep1M_groundtruth.ivecs')
     xb = mmap_fvecs(base_path)
     xq = mmap_fvecs(query_path)
     xt = mmap_fvecs(learn_path)

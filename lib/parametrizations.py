@@ -283,6 +283,7 @@ def orthogonal(module: nn.Module,
         >>> torch.dist(Q.T @ Q, torch.eye(20))
         tensor(4.9332e-07)
     """
+    # 获取模块 module 中名为 name 的属性的值
     weight = getattr(module, name, None)
     if not isinstance(weight, Tensor):
         raise ValueError(

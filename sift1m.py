@@ -5,12 +5,13 @@ import argparse
 import numpy as np
 from functools import partial
 from torch_optimizer import QHAdam
-
+# os.chdir('/home/sfy/study/BREWESS/lib')
+sys.path.append('/home/sfy/study/BREWESS/lib/pg')
 import lib
 
 sys.path.insert(0, '..')
 os.environ['OMP_NUM_THREADS'] = "40"
-os.environ['CUDA_VISIBLE_DEVICES'] = '7'
+os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 
 
 # python sift1m.py --dataset_name sift --data_path /home/zjlab/ANNS/yq/dataset/origin/ --M 32
@@ -18,8 +19,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset_name", type=str, required=True)
     parser.add_argument("--data_path", type=str, required=True)
-    parser.add_argument("--M", type=int, required=True)
-    parser.add_argument("--K", type=int, default=256)
+    parser.add_argument("--M", type=int, required=True)  
+    parser.add_argument("--K", type=int, default=256)  
     parser.add_argument("--lr", type=float, default=1e-3)
     parser.add_argument("--batch_size", type=float, default=256)
     parser.add_argument("--epochs", type=int, default=500)
@@ -78,11 +79,17 @@ def main():
     # def fetch_retrieval():
     #     negatives = trainer.get_retrieval_ids(test_base.cpu(), train_base.cpu(), train_gt.cpu(), k=args.negative_k)
     #     return negatives.cuda()
+    
+    # Neighborhood features sampling.
     def fetch_retrieval():
-        return_k = args.negative_k
+        return_k = args.negative_k 
         negatives, records, dist = trainer.get_retrieval_ids(test_base.cpu(), train_base.cpu(), train_gt.cpu(), train_gt2.cpu(), k=return_k) # dist:pq距离 dist2:真实距离
+        # negatives, records, dist = trainer.get_retrieval_ids(test_base, train_base, train_gt.cuda(), train_gt2.cuda(), k=return_k) # dist:pq距离 dist2:真实距离
 
         max_visited_ids = 0
+        # records = records.cpu()
+        # dist = dist.cpu()
+        # negatives = negatives.cpu()
         #records[bs][times + times * (r_num + K *id + r_num * id)]
         for i in range(len(records)): # bs
             visited_ids = set()

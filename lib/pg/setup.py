@@ -17,10 +17,10 @@ except AttributeError:
 # extension module
 module = Extension("_pg",
                    ["pg.i","pg.cpp"],
-                   include_dirs=[numpy_include, '/home/zjlab/ANNS/yq/RPQ/lib/pg/nsg/include/efanna2e/', './'],
+                   include_dirs=[numpy_include, '/home/sfy/study/BREWESS/lib/pg/nsg/include/efanna2e/', './'],
                    extra_compile_args=["-fopenmp"],
                    extra_link_args=['-lgomp'],
-                   extra_objects=['/home/zjlab/ANNS/yq/RPQ/lib/pg/nsg/build/src/CMakeFiles/efanna2e_s.dir/index.cpp.o', '/home/zjlab/ANNS/yq/RPQ/lib/pg/nsg/build/src/CMakeFiles/efanna2e_s.dir/index_nsg.cpp.o'],
+                   extra_objects=['/home/sfy/study/BREWESS/lib/pg/nsg/build/src/CMakeFiles/efanna2e_s.dir/index.cpp.o', '/home/sfy/study/BREWESS/lib/pg/nsg/build/src/CMakeFiles/efanna2e_s.dir/index_nsg.cpp.o'],
                    swig_opts=['-c++']
                    )
 

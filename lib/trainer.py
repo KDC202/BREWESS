@@ -126,13 +126,14 @@ class Trainer(nn.Module):
         return self
 
     def get_true_nearest_ids(self, base, query, *, k, exclude_self=True):
-        """ returns indices of k nearest neighbors for each vector in original space """
+        """ returns indices of k nearest neighbors for each vector in original space """ 
         if self.verbose:
             print(end="Computing ground truth neighbors... ", flush=True)
         k = k or self.positive_neighbors
         with torch.no_grad():
             train_neighbors_index = self.SimilaritySearch(base).search(
                 query, k=k + int(exclude_self))[:, int(exclude_self):]
+            # 将一个 NumPy 数组或类似数组的对象 train_neighbors_index 转换为 PyTorch 张量，并将其放置到与 base 张量相同的设备上
             original_neighbors_index = torch.as_tensor(train_neighbors_index, device=base.device)
         if self.verbose:
             print(end="Done\n", flush=True)
@@ -144,7 +145,7 @@ class Trainer(nn.Module):
         :param base: float matrix [num_vectors, vector_dim]
         :param positive_ids: int matrix [num_vectors, num_positive_neighbors]
         :param k: number of negative samples for each vector
-        :param skip_k: excludes this many nearest indices from nearest ids (used for recall@10/100)
+        :param skip_k:   (used for recall@10/100)
         """
         if self.verbose:
             print(end="Computing negative candidates... ", flush=True)
@@ -154,11 +155,12 @@ class Trainer(nn.Module):
         k_total = k
 
         with torch.no_grad():
+            # print("here")
             with training_mode(self.model, is_train=False):
                 learned_nearest_ids, learned_cand_his_ids, dist = self.NegativeSimilaritySearch(base).search(query, exact_nn, k=k_total)
                 learned_nearest_ids = torch.as_tensor(learned_nearest_ids, device=base.device)
             # ^-- [base_size, k_total]
-
+            
             idendity_ids = torch.arange(len(positive_ids), device=positive_ids.device)[:, None]  # [batch_size, 1]
             forbidden_ids = torch.cat([idendity_ids, positive_ids], dim=1)
             # ^-- [base_size, 1 + k_positives]

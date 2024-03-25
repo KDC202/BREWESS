@@ -35,6 +35,7 @@ def iterate_minibatches(*tensors, batch_size, shuffle=True, epochs=1,
         if epoch >= epochs:
             break
 
+# 对输入数据分块
 def process_in_chunks(function, *args, batch_size, out=None, **kwargs):
     total_size = args[0].shape[0]
     first_output = function(*[x[0: batch_size] for x in args])

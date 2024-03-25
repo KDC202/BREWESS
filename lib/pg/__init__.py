@@ -64,7 +64,7 @@ class PGSearcher(PG , NNS):
         out3 = np.zeros((distances.shape[0], (k+r+1) * 50 + 1), dtype=np.float32) # true distance
         exact_nn = exact_nn.type(torch.int32)
         # graph_path = "/home/zjlab/ANNS/yq/BREWESS/_graph/sift1m_nsg.graph"
-        graph_path = "/home/zjlab/ANNS/yq/BREWESS/_graph/sift10k_nsg.graph"
+        graph_path = "/home/sfy/study/data/sift/sift.nsg"
         # graph_path = "/home/zjlab/ANNS/yq/BREWESS/_graph/gist_nsg.graph"
         # graph_path = "/home/zjlab/ANNS/yq/BREWESS/_graph/deep1m_nsg.graph"
         # graph_path = "/home/zjlab/ANNS/yq/BREWESS/_graph/bigann1m_nsg.graph"

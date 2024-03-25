@@ -63,8 +63,11 @@ class DPQ(PQ):
     def initialize(self, x):
         """ Initialize codes and log_temperatures given data """
         with torch.no_grad():
+            # 随机初始化码本
             chosen_ix = torch.randint(0, x.shape[0], size=[self.M * self.K], device=x.device)
+            # 分块处理
             chunk_ix = torch.arange(self.M * self.K, device=x.device) // self.K
+            
             initial_keys = self.encoder(x)[chosen_ix, chunk_ix].view(*self.codebook.shape).contiguous()
             self.codebook.data[:] = initial_keys
 
@@ -88,6 +91,7 @@ class RPQ(DPQ):
 
         encoder = nn.Sequential(
             orth_linear,
+            # 对输入的张量进行形状重排。具体来说，它将输入张量的形状从 (batch_size, d) 转换为 (batch_size, M, d // M)，其中 M 是指定的分块数量，d 是输入向量的维度。
             Lambda(lambda x: x.view(*x.shape[:-1], M, d // M))
         )
         

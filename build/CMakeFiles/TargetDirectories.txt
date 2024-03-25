@@ -1,0 +1,6 @@
+/home/sfy/study/BREWESS/build/CMakeFiles/rebuild_cache.dir
+/home/sfy/study/BREWESS/build/CMakeFiles/edit_cache.dir
+/home/sfy/study/BREWESS/build/src/CMakeFiles/rebuild_cache.dir
+/home/sfy/study/BREWESS/build/src/CMakeFiles/edit_cache.dir
+/home/sfy/study/BREWESS/build/src/CMakeFiles/efanna2e_s.dir
+/home/sfy/study/BREWESS/build/src/CMakeFiles/efanna2e.dir

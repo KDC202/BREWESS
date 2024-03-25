@@ -1,0 +1,6 @@
+/home/sfy/study/BREWESS/lib/pg/nsg/build/CMakeFiles/rebuild_cache.dir
+/home/sfy/study/BREWESS/lib/pg/nsg/build/CMakeFiles/edit_cache.dir
+/home/sfy/study/BREWESS/lib/pg/nsg/build/src/CMakeFiles/rebuild_cache.dir
+/home/sfy/study/BREWESS/lib/pg/nsg/build/src/CMakeFiles/edit_cache.dir
+/home/sfy/study/BREWESS/lib/pg/nsg/build/src/CMakeFiles/efanna2e_s.dir
+/home/sfy/study/BREWESS/lib/pg/nsg/build/src/CMakeFiles/efanna2e.dir
